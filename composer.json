@@ -1,0 +1,26 @@
+{
+    "name": "fortresswire/fw-sdk-php",
+    "homepage": "https://github.com/fortresswire/fw-sdk-php",
+    "description": "FortressWire SDK for PHP - Use FortressWire in your PHP project",
+    "keywords": [ "fortressWire", "sdk", "watchdog" ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Donald Pakkies",
+            "email": "donaldpakkies@gmail.com",
+            "homepage": "https://docs.fortresswire.com/php",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FortressWire\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    }
+}
