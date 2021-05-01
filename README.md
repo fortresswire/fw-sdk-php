@@ -7,7 +7,7 @@ The FortressWire SDK for PHP makes it easy for developers to interact with Fortr
 Getting Started
 ---------------
 
-1. <b>Minimum requirements</b> - To run the SDK, your system will need to have at least PHP 7.4 with the cURL extension. 
+1. <b>Minimum requirements</b> - To run the SDK, your system will need to have a minimum PHP version of 7.4 with the cURL extension. 
 
 2. <b>Install the SDK</b> - Using Composer is the recommended way to install the FortressWire SDK for PHP. The SDK is available via [Packagist](https://packagist.org/) under the `fortresswire/fw-sdk-php` package. If Composer is installed globally on your system, you can run the following in the base directory of your project to add the SDK as a dependency:
 
