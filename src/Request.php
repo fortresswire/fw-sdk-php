@@ -29,6 +29,17 @@ class Request implements RequestInterface
     private string $path;
 
     /**
+     * Get endpoint path.
+     *
+     * @param string $path
+     * @return string
+     */
+    private function getPath(string $path)
+    {
+        return trim($this->path) . '/' . trim($path, '/');
+    }
+
+    /**
      * Instantiate Request.
      *
      * @param \GuzzleHttp\Client $guzzle
@@ -55,16 +66,21 @@ class Request implements RequestInterface
      * Submit request.
      *
      * @param string $method
+     * @param string $path
      * @param array|null $data
      * @throws CredentialsException
      * @return ResponseInterface
      */
-    public function make(string $method, array $data = null) : ResponseInterface
+    public function make(string $method, $path = '', array $data = null) : ResponseInterface
     {
         try {
-            $request = $this->guzzle->request(strtoupper($method), $this->path ?? '', $data ? [
-                \GuzzleHttp\RequestOptions::JSON => $data
-            ] : null);
+            $request = $this->guzzle->request(strtoupper($method), $this->getPath($path) ?? '', [
+                \GuzzleHttp\RequestOptions::JSON => $data,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ]
+            ]);
     
             return $request;
         }
