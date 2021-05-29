@@ -10,21 +10,21 @@ interface RequestInterface
 
     public function make(string $method, array $data = null) : ResponseInterface;
 
-    public function get() : ResponseInterface;
+    public function get(string $path = '') : ResponseInterface;
 
-    public function head() : ResponseInterface;
+    public function head(string $path = '') : ResponseInterface;
 
-    public function post(array $data) : ResponseInterface;
+    public function post(string $path = '', array $data) : ResponseInterface;
 
-    public function put(array $data) : ResponseInterface;
+    public function put(string $path = '', array $data) : ResponseInterface;
 
-    public function delete(array $data = null) : ResponseInterface;
+    public function delete(string $path = '', array $data = null) : ResponseInterface;
 
-    public function connect() : ResponseInterface;
+    public function connect(string $path = '') : ResponseInterface;
 
-    public function options() : ResponseInterface;
+    public function options(string $path = '') : ResponseInterface;
 
-    public function trace() : ResponseInterface;
+    public function trace(string $path = '') : ResponseInterface;
 
-    public function patch(array $data) : ResponseInterface;
+    public function patch(string $path = '', array $data) : ResponseInterface;
 }

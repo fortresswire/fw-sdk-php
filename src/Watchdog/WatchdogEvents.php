@@ -36,7 +36,7 @@ class WatchdogEvents implements WatchdogEventsInterface
      */
     public function create(string $level = 'debug', string $message, array $extra = []) : ResponseInterface
     {
-        return $this->client->request->on('event/create')->put([
+        return $this->client->request->on('event/create')->put('', [
             'level' => $level,
             'message' => $message,
             'extra' => $extra,
