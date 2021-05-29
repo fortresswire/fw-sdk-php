@@ -58,6 +58,7 @@ class FortressWireClient
         $this->key        = $args['key'];
         $this->host       = $args['host'];
         $this->ssl_verify = $args['ssl_verify'] ?? true;
+        $this->secure     = $args['secure'] ?? true;
         $this->request    = new Request($this->createGuzzleClient());
     }
 
@@ -68,9 +69,11 @@ class FortressWireClient
      */
     private function createGuzzleClient()
     {
+        $http = $this->secure === true ? 'https://' : 'http://';
+
         return new \GuzzleHttp\Client([
             'verify' =>  $this->ssl_verify,
-            'base_uri' => "https://{$this->region}.{$this->host}/service/v{$this->version}/",
+            'base_uri' => "{$http}{$this->region}.{$this->host}/service/v{$this->version}/",
             'headers'  => [
                 'Authorization' => "Bearer {$this->key}",
             ]
