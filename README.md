@@ -48,6 +48,36 @@ $logger->create('debug - low', 'Account registration failed.', [
 
 ```
 
+### Creating a MoanaDB client
+
+```php
+require './vendor/autoload.php';
+
+use FortressWire\Moana\MoanaClient;
+
+$client = new MoanaClient([
+    'version' => '1',
+    'region' => 'af-south-1',
+    'key' => $_ENV['MOANA_KEY'],
+]);
+```
+
+### Create a MoanaDB record
+
+```php
+...
+
+use FortressWire\Moana\Document;
+
+$document = new Document($client);
+
+$document->table('users')->create([
+    'first_name' => 'Donald',
+    'last_name' => 'Pakkies',
+]);
+
+```
+
 License
 -------
 
