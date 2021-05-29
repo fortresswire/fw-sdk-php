@@ -62,7 +62,7 @@ $client = new MoanaClient([
 ]);
 ```
 
-### Create a MoanaDB record
+### Creating a MoanaDB record
 
 ```php
 ...
